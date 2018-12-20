@@ -1,0 +1,65 @@
+.table-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.page-section {
+  background: #fff;
+  margin-bottom: 32rpx;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 88rpx;
+}
+
+.form-row-label {
+  width: 720rpx;
+  font-size: small;
+  margin-right: 10rpx;
+  text-align: left;
+  color: #000;
+}
+.input{
+  font-size: small;
+  text-align: center;
+}
+.form-row-checkbox {
+  width:60rpx;
+}
+
+.form-line {
+  height: 1px;
+  background-color: #ddd;
+  margin-left: 30rpx;
+}
+
+.form-icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.form-row-operation{
+  display: flex;
+  flex-direction: row;
+}
+
+.header{
+  font-weight: bold;
+  font-size: small;
+  background-color: #065FB9;
+  color: white;
+}
+.head-row{
+  justify-content: space-between;
+}
+
+.head-label{
+  align-self: center;
+}
+
+.blank{
+  width:48rpx;
+}

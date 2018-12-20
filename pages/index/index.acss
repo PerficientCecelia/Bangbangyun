@@ -1,0 +1,33 @@
+
+@import "../templates/header/header.acss";
+
+.index-container{
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.option-container{
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+.option-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.option-button{
+   width:300rpx;
+   height: 130rpx;
+   background-color: #065FB9;
+   margin: 20rpx;
+   line-height: 130rpx;
+   text-align: center;
+   font-size: 20px;
+   color: white;
+   font-weight: bold;
+}
+

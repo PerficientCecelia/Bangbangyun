@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/datePage/datePage",
+    "pages/orderdetail/orderdetail", 
+    "pages/edit/edit"
+  ],
+  "window": {
+    "defaultTitle": "施工宝"
+  }
+}

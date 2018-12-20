@@ -1,0 +1,43 @@
+<import src="../templates/header/header.axml"/>
+<view class="index-container">
+  <template is="head-bar" data="{{...header}}"/>
+  <view class="option-container">
+    <view class="option-row">
+      <view class="option-button">
+        <text class="option-text">工单日历</text>
+      </view>
+      <view class="option-button">
+        <text class="option-text">工单安排</text>
+      </view>
+    </view>
+    <view class="option-row">
+      <view class="option-button">
+        <text class="option-text">设备计划</text>
+      </view>
+      <view class="option-button">
+        <text class="option-text">设备维护</text>
+      </view>
+    </view>
+    <view class="option-row">
+      <view class="option-button">
+        <text class="option-text">投诉处理</text>
+      </view>
+      <view class="option-button">
+        <text class="option-text">同步数据</text>
+      </view>
+    </view>
+  </view>
+  <view class="message-container">
+    <view class="message-row">
+      <swiper indicator-dots="{{false}}" autoplay="{{true}}" interval="{{3000}}" duration="{{3000}}">
+        <block a:for="1 in 5">
+          <swiper-item>
+            <text>然后，需要在 ValuesController.cs 文件中增加调用数据源类 DbData ，代码： private DbData db = DbData.Current; 这里使用了 DbData 类中的Current属性来获取DbData的实例化对象，这里和大家简单说下这样做的好处在于统一管理调用类的实例，因为我们创建的某个操作类后，可能会在不同的文件或不同业务中调用，如果想调用其内部方法，那么需要用到new一个对象，如此一来多次在使用的地方都new一次感觉很繁琐，而且不容已维护；当然这里的DbData是简单的测试用例，没有用到什么工厂，抽象等设计来处理声明这类的实例(大家可以忽略哦)；
+                  好了，我们再 ValuesController 中分别创建个获取学生列表信息的方法 GetAllStudents01_2 和添加学生信息的方法 AddStudent ，然后填写内部代码如：
+             </text>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<import src="../dropdown/dropdown.axml"/>
+<template name="head-bar">
+<view class="head-bar">
+  <view id="headerouter" class="head-section user-area" >
+    <text id="headtext" catchTap="login">{{username}}</text>
+    <view a:if="{{showDropdown}}">
+       <template is="dropdown" data="{{...dropdownData}}"/>
+    </view>
+  </view>
+  <view class="head-section title-area">
+    <text>{{title}}</text>
+  </view>
+  <view class="head-section qrcode-area">
+    <text>扫码</text>
+  </view>
+</view>
+</template>

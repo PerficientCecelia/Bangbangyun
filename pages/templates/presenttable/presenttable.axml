@@ -1,0 +1,15 @@
+<template name="present-table">
+  <view class="present-table-container">
+    <view class="header-section" a:if="{{showHeadInput}}">
+      <input class="header-input" onInput="bindKeyInput" onConfirm="bindConfirm" focus="{{focus}}" disabled="{{disabled}}" value="{{inputValue}}" />
+    </view>
+    <view class="row-list-section row-{{index}}" a:for="{{orderList}}" a:key="{{index}}" data-idx="{{index}}">
+      <view class="item-key">
+        <text>{{item.key}}</text>
+      </view>
+      <view class="item-value">
+        <text>{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+</template>

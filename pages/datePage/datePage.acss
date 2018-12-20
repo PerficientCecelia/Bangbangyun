@@ -1,0 +1,38 @@
+@import "../templates/header/header.acss"; 
+@import "../templates/calendar/calendar.acss";
+
+
+.date-page-container{
+  width: 100%;
+}
+
+ .list-section{
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  
+}
+
+
+.list-item:nth-child(even){
+  background-image: linear-gradient(to top, RGB(199,238,206) 0%, #FFFFFF 100%);
+}
+.list-item:nth-child(odd){
+  background-color: RGB(199,238,206);
+}
+.list-item{
+  display: flex;
+  flex-direction: row;
+  line-height: 50rpx;
+  overflow-wrap:break-word;
+  text-align: start;
+  padding: 0 10rpx;
+}
+
+ .date-item{
+  width: 25%;
+} 
+
+.text-item{
+ padding: 0 10rpx;
+} 

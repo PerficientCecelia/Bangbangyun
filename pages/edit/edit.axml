@@ -1,0 +1,31 @@
+<view class="edit-container">
+  <view class="search-box">
+    <input class="search-input" onInput="bindKeyInput" onConfirm="bindConfirm" focus="{{focus}}" disabled="{{disabled}}" value="2015/08/25  东山大酒店" />
+  </view>
+  <view class="edit-table">
+    <view class="row header-row">
+      <view class="column first-column">
+        <text class="header-text">区域</text>
+      </view>
+      <view class="column">
+        <text class="header-text">厨房</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column first-column">
+        <text class="first-column-text">使用药剂</text>
+      </view>
+      <view class="column input-row">
+        <input class="edit-input" value="三合一"/>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column first-column">
+        <text class="first-column-text">使用器械</text>
+      </view>
+      <view class="column input-row">
+        <input class="edit-input" value="任意门"/>
+      </view>
+    </view>
+  </view>
+</view>

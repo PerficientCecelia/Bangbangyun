@@ -1,0 +1,20 @@
+<view class="login-container">
+  <view class="login-logo">
+    <image class="logo" src="/images/logo.png"></image>
+  </view>
+  <view class="login-form">
+    <form onSubmit="formSubmit">
+      <view class="section">
+        <view class="section__username">用户名:</view>
+        <input name="username" onInput="usernameInput" confirm-type="done" />
+      </view>
+      <view class="section">
+        <view class="section__pasword">密码:</view>
+        <input name="password" password onInput="passwordInput"/>
+      </view>
+      <view class="btn-area">
+        <button formType="submit" class="btn" disabled="{{isDisableLoginBtn}}">登陆</button>
+      </view>
+    </form>
+  </view>
+</view>
