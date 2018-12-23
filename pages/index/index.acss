@@ -1,6 +1,4 @@
 
-@import "../templates/header/header.acss";
-
 .index-container{
   flex-direction: column;
   display: flex;

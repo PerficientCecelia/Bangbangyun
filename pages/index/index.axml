@@ -1,6 +1,6 @@
-<import src="../templates/header/header.axml"/>
+
 <view class="index-container">
-  <template is="head-bar" data="{{...header}}"/>
+ <header title="首页"/>
   <view class="option-container">
     <view class="option-row">
       <view class="option-button">
