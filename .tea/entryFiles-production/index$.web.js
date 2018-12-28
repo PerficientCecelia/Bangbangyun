@@ -1,5 +1,7 @@
 require('@alipay/appx-compiler/lib/sjsEnvInit');
 require('./config$');
+require('../../pages/components/header/header');
+require('../../pages/components/calendar/calendar');
 require('../../pages/index/index');
 require('../../pages/login/login');
 require('../../pages/datePage/datePage');

@@ -1,0 +1,91 @@
+.calendar-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family:Arial,Helvetica,sans-serif;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 5%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-grow{
+  flex-grow: 0;
+}
+
+.row-direction{
+  display: row;
+}
+
+/* 垂直轴（交叉轴）上对齐方式是自身中线与其他目标对齐*/
+.align-items-center{
+  align-items: center;
+}
+
+/* 水平轴（主轴）上对齐方式是分散*/
+.justify-content-between{
+  justify-content: space-between;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
+.top-bar{
+  height: 80rpx;
+}
+
+.weeks {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.week {
+  text-align: center;
+  line-height: 100rpx;
+}
+
+
+.week {
+  width: 105rpx;
+  height: 100rpx;
+}
+
+.date-grid{
+  width: 105rpx;
+  height: 100rpx;
+}
+
+.days-this-row{
+  height: 100rpx;
+  width: 105rpx;
+}
+
+.day {
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 35rpx;
+  font-weight: 200;
+}
+
+.todo-dot {
+  width: 50rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+  font-size: 25rpx;
+}
+
+.backgroud-choosed{
+  background-color: yellow;
+}

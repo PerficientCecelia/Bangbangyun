@@ -1,4 +1,5 @@
 import calendarConfig from "../templates/calendar/calendar.js";
+import mypromise from '/pages/utils/Promise.js';
 
 Page({
   data: {
@@ -9,18 +10,18 @@ Page({
     choosedTodoList: []
   },
   onLoad() {
-
-    var today=calendarConfig.calculateToday();
-    this.setData(today);
-    //这里改为异步方法  todolater
-    var days = calendarConfig.initiateDays(today.curYear, today.curMonth,today.curDate);
-    this.setData({
-      "calendarData.days":days,
-      "calendarData.curYear": today.curYear,
-      "calendarData.curMonth": today.curMonth
-    })
-    this.findTodayTodoList();
-    console.log(this.data.calendarData);
+     
+    // var today=calendarConfig.calculateToday();
+    // this.setData(today);
+    // //这里改为异步方法  todolater
+    // var days = calendarConfig.initiateDays(today.curYear, today.curMonth,today.curDate);
+    // this.setData({
+    //   "calendarData.days":days,
+    //   "calendarData.curYear": today.curYear,
+    //   "calendarData.curMonth": today.curMonth
+    // })
+    // this.findTodayTodoList();
+    // console.log(this.data.calendarData);
   },
   findTodayTodoList(){
     for (var i = 0; i < this.data.calendarData.days.length;i++){

@@ -1,8 +1,7 @@
-<import src="../templates/header/header.axml"/>
+
 <import src="../templates/presenttable/presenttable.axml"/>
 <import src="../templates/table/table.axml"/>
 <view class="order-detail-container">
-  <template is="head-bar"/>
   <template is="present-table" data="{{...presentTableData}}"/>
   <template is="table" data="{{listTableData:listTableData,showDetail:true}}"/>
 </view>

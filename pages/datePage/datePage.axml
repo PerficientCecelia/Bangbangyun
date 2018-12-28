@@ -1,8 +1,8 @@
-<import src="../templates/header/header.axml"/>
+
 <import src="../templates/calendar/calendar.axml"/>
 <view class="date-page-container">
-   <template is="head-bar"/> 
-  <template is="calendar" data="{{...calendarData}}" />
+ <header title="工单日历"/>
+   <calendar />
    <view class="list-section">
      <view  class="list-item" a:for="{{choosedTodoList}}" a:key="{{index}}" data-idx="{{index}}" catchTap="handleListItemClick"> 
         <text class="date-item">{{item.date}}</text>

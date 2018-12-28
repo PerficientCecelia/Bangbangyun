@@ -1,4 +1,4 @@
-@import "../templates/header/header.acss";
+
 @import "../templates/presenttable/presenttable.acss";
 @import "../templates/table/table.acss";
 .order-detail-container{
