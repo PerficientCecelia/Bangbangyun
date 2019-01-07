@@ -1,13 +1,16 @@
+import presentData from '/pages/utils/presentData.js';
+
 Page({
   data: {},
   onLoad(options) {
+    var day=options.day;
     var data = JSON.parse(options.detail);
-    var orderList=this.convertToKeyValueList(data);
+    var orderList = this.processPresentableData(data);
     this.setData({
       "presentTableData.orderList": orderList,
       "presentTableData.focus":false,
       "presentTableData.disabled": true,
-      "presentTableData.inputValue": data.date + data.location,
+      "presentTableData.inputValue": day + data.projectName,
       "presentTableData.showHeadInput":true
     });
     var listTable = [{ key: '区域', value: '厨房' }, { key: '使用药剂', value: '三合一' }, { key: '使用器械', value: '/' }, { key: '药剂数量', value: '25g' }, { key: '现场照片', value: '/' }];
@@ -18,8 +21,17 @@ Page({
       "listTableData.inputValue": data.date + data.location,
       "listTableData.showHeadInput": false
     });
-    console.log(this.data);
     console.log(orderList);
+  },
+  processPresentableData(valueList){
+    var presentKey=presentData.orderDetail;
+    var keyvalueList=[];
+    for(var k in presentKey){
+      let key = presentKey[k];
+      let value = valueList[k];
+      keyvalueList.push({key,value});
+    }
+    return keyvalueList;
   },
   convertToKeyValueList(data){
     let keyValueList=[];
@@ -30,7 +42,6 @@ Page({
          continue;
         keyValueList.push({key,value});
      }
-    console.log(keyValueList);
     return keyValueList;
   },
   bindKeyInput(event){

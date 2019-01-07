@@ -1,6 +1,4 @@
 
-@import "../templates/calendar/calendar.acss";
-
 
 .date-page-container{
   width: 100%;
@@ -10,12 +8,11 @@
   display: flex;
   flex-direction: column;
   font-size: small;
-  
 }
-
 
 .list-item:nth-child(even){
   background-image: linear-gradient(to top, RGB(199,238,206) 0%, #FFFFFF 100%);
+  widows: 46%;
 }
 .list-item:nth-child(odd){
   background-color: RGB(199,238,206);
@@ -29,10 +26,10 @@
   padding: 0 10rpx;
 }
 
- .date-item{
-  width: 25%;
-} 
+.date-item{
+  width: 125px !important;
+}
 
 .text-item{
- padding: 0 10rpx;
+ padding: 0 20rpx;
 } 

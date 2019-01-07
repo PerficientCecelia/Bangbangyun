@@ -5,36 +5,38 @@ Component({
   mixins: [],
   data: {
     weeksCh: ["日", "一", "二", "三", "四", "五", "六"],
-    curYear: "",
-    curMonth: "",
-    curDay: "",
-    curDayObj:{}
+    curDayObj: {}
   },
   props: {
-    
+    onChangeDay:(day)=>{console.log(day);}
   },
   didMount() {
-    let today = this.calculateToday();
+    let today = this.calculateToday("2018", "09", "03");
     this.setData({
-      curYear:today.curYear,
-      curMonth:today.curMonth,
-      curDay:today.curDate,
-      curDayObj:today
+      curDayObj: today
     });
-    this.initDaysView(today.curYear, "09", "03");
+
+    this.initDaysView("2018", "09", "03");
   },
-  didUpdate(prevProps, prevData) { 
+  didUpdate(prevProps, prevData) {
   },
   didUnmount() { },
   methods: {
-    onTapDay(e){
-      console.log(e);
-      var columnIndex=e.currentTarget.dataset.idx;
-      var lineIndex = e.currentTarget.dataset.parentidx;
-      var oldLineIndex=this.data.curDayObj.lineIndex;
-      var oldColumnIndex = this.data.curDayObj.columnIndex;
-      console.log(this.data.days[oldLineIndex][oldColumnIndex]);
-      console.log(this.data.days[lineIndex][columnIndex]);
+    onTapDay(e) {
+      let columnIndex = e.currentTarget.dataset.idx;
+      let lineIndex = e.currentTarget.dataset.parentidx;
+      let oldLineIndex = this.data.curDayObj.lineIndex;
+      let oldColumnIndex = this.data.curDayObj.columnIndex;
+      let oldChoosedKey = 'days[' + oldLineIndex + '][' + oldColumnIndex + '].choosed';
+      let newChoosedKey = 'days[' + lineIndex + '][' + columnIndex + '].choosed';
+      let choosedDayViewObj = this.data.days[lineIndex][columnIndex];
+      let choosedDay = this.calculateToday(this.data.curDayObj.curYear, this.data.curDayObj.curMonth, choosedDayViewObj.day);
+      this.props.onChangeDay(choosedDayViewObj,choosedDay);
+      this.setData({
+        [oldChoosedKey]: "",
+        [newChoosedKey]: "choosed",
+        curDayObj: choosedDay
+      });
     },
     initDaysView(year, month, day) {
       let _this = this;
@@ -141,9 +143,8 @@ Component({
       if (i == curDate) {
         thisday["choosed"] = "choosed";
         if (hasDayList)
-        this.setData({ "curTodoList": thisday.thisDayList});
+          this.props.onChangeDay(thisday,{"curYear":year,"curMonth":month,"curDate":curDate});
       }
-
       return thisday;
     },
     initiateDays(year, month, curDate, dayList, hasDayList) {
@@ -199,32 +200,38 @@ Component({
         curSeconds: s
       }
     },
-    calculateToday() {
-      const date = new Date();
+    calculateToday(setYear, setMonth, setDay) {
+      const date = new Date(setYear, parseInt(setMonth) - 1, setDay);
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
       const day = date.getDate();
       const weekDay = date.getDay();
-      const lineIndex = this.calculateLineIndex(year,month,day);
+      const lineIndex = this.calculateLineIndex(year, month, day);
       return {
         curYear: year,
         curMonth: month,
         curDate: day,
         curWeekDay: weekDay,
-        lineIndex:lineIndex,
+        lineIndex: lineIndex,
         columnIndex: weekDay
       }
     },
-    calculateLineIndex(year,month,day){
-       var emptyGridLength=this.calculateEmptyGrids(year,month).length;
-       var firstSaturdayDate=7-emptyGridLength;
-       var lineIndex=(day-firstSaturdayDate)/7;
-       if(parseInt(lineIndex)!=lineIndex){
-         lineIndex=parseInt(lineIndex)+1;
-       }else{
-         lineIndex=parseInt(lineIndex);
-       }
-       return lineIndex;
+    calculateLineIndex(year, month, day) {
+      let firstDayOfWeek = this.getFirstDayOfWeek(year, parseInt(month));
+      let emptyGridsCount;
+      if (firstDayOfWeek != 7) {
+        emptyGridsCount = firstDayOfWeek;
+      } else {
+        emptyGridsCount = 0;
+      }
+      var totalDay = parseInt(day) + emptyGridsCount;
+      var lineIndex = totalDay / 7;
+      if (parseInt(lineIndex) == lineIndex) {
+        lineIndex = lineIndex - 1;
+      } else {
+        lineIndex = parseInt(lineIndex);
+      }
+      return lineIndex;
     },
     checkTime(i) {
       if (parseInt(i) < 10) { i = "0" + parseInt(i) }

@@ -1,12 +1,11 @@
 
-<import src="../templates/calendar/calendar.axml"/>
 <view class="date-page-container">
  <header title="工单日历"/>
-   <calendar />
+   <calendar onChangeDay="onChangeDay"/>
    <view class="list-section">
      <view  class="list-item" a:for="{{choosedTodoList}}" a:key="{{index}}" data-idx="{{index}}" catchTap="handleListItemClick"> 
-        <text class="date-item">{{item.date}}</text>
-        <text class="text-item">{{item.location}}</text>
+        <text class="date-item">{{item.contractNumber}}</text>
+        <text class="text-item">{{item.projectName}}</text>
      </view>
   </view> 
 </view>

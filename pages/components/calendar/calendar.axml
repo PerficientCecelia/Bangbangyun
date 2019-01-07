@@ -4,7 +4,7 @@
       <view class="prev-handle"><<                 
       </view>
     </view>
-    <view class="date-area">{{curYear}}年{{curMonth}}月</view>
+    <view class="date-area">{{curDayObj.curYear}}年{{curDayObj.curMonth}}月</view>
     <view class="next-area date-grid flex justify-content-center align-items-center">
       <view class="next-handle">>></view>
     </view>
@@ -13,7 +13,7 @@
     <view class="week" a:for="{{weeksCh}}" a:key="{{index}}" data-idx="{{index}}">{{item}}</view>
   </view>
   <view class="days-row flex row-direction justify-content-between flex-grow" a:for="{{days}}" a:for-index="parentIdx" a:key="{{parentIdx}}" data-idx="{{parentIdx}}">
-    <view class="days-this-row flex align-items-center justify-content-center backgroud-{{item.choosed}}" a:for="{{item}}" a:key="{{index}}" data-idx="{{index}}" data-parentidx="{{parentIdx}}" onTap="onTapDay">
+    <view class="days-this-row flex align-items-center justify-content-center backgroud-{{item.choosed}}" a:for="{{item}}" a:key="{{index}}" data-idx="{{index}}" data-day="{{item.day||item}}" data-parentidx="{{parentIdx}}" onTap="onTapDay">
       <view class="day border-radius flex justify-content-center flex-wrap">   
         {{item.day||item}}            
         <view class="todo-dot flex justify-content-center align-items-center" a:if="{{item.showTodoLabel}}">{{item.toDoCount}}</view>

@@ -58,7 +58,6 @@ Component({
       _this.getUserDDId()
         .then(
           function(data) {
-            dd.alert({ title: "获取用户钉钉账号", content: JSON.stringify(data) });
             let requestUserInfoUrl = "https://erpm.bb-pco.com/api/login?DDUserId=" + app.globalData.userid;
             return mypromise.get(requestUserInfoUrl);
           },
