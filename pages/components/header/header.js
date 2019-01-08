@@ -103,20 +103,18 @@ Component({
         dd.getAuthCode({
           success: (res) => {
             app.globalData.authcode = res.authCode;
-            let authCodeUrl = "https://oapi.dingtalk.com/gettoken?appkey=" + app.globalData.appKey + "&appsecret=" + app.globalData.appValue;
-            return mypromise.get(authCodeUrl)
-              .then(function(data) {
-                if (data.access_token) {
-                  app.globalData.access_token = data.access_token;
-                  let userIdUrl = "https://oapi.dingtalk.com/user/getuserinfo?access_token=" + app.globalData.access_token + "&code=" + app.globalData.authcode;
-                  return mypromise.get(userIdUrl);
+            console.log(res.authCode);
+            let getDDUserIdUrl = "https://erpm.bb-pco.com/api/login/ddid?authCode=" + app.globalData.authcode;
+            return mypromise.get(getDDUserIdUrl)
+              .then(function(jsondata) {
+                if(jsondata.status=="Success"){
+                  var data=jsondata.data;
+                  app.globalData.userid = data.userid;
+                  resolve(app.globalData.userid);
+                }else{
+                  reject(jsondata)
                 }
-              })
-              .then(function(data) {
-                app.globalData.userid = data.userid;//钉钉号ID
-                app.globalData.deviceId = data.deviceId;//钉钉系统存储的设备ID
-                resolve(data);
-              })
+              })             
           },
           fail: (err) => {
             console.log("get auth code failed----" + JSON.stringify(err));
